@@ -108,7 +108,6 @@ class StyleLearner:
         """
         session = self.database.get_session()
         try:
-            from ..database.models import EditingProfile
             profile = session.query(EditingProfile).filter_by(name=profile_name).first()
             
             if not profile:
