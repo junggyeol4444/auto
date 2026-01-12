@@ -52,7 +52,8 @@ class VideoEditor:
         
         # Create clips for each voice segment with padding
         padding = 0.1  # default padding
-        if audio_patterns and audio_patterns[0]:
+        if audio_patterns and len(audio_patterns) > 0:
+            # audio_patterns is a list of dicts from get_profile_patterns
             padding = audio_patterns[0].get('speech_padding_before', 0.1)
         
         clips = []

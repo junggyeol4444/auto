@@ -1,9 +1,10 @@
 """
 Style learner - analyzes videos to learn editing patterns
 """
+from moviepy.editor import VideoFileClip
 from .scene_detector import SceneDetector
 from .audio_analyzer import AudioAnalyzer
-from ..database.models import Database, ScenePattern, AudioPattern
+from ..database.models import Database, ScenePattern, AudioPattern, EditingProfile
 
 
 class StyleLearner:
@@ -31,13 +32,13 @@ class StyleLearner:
         # Get or create profile
         session = self.database.get_session()
         try:
-            profile = session.query(self.database.Session().query(
-                self.database.engine.execute("SELECT * FROM editing_profiles WHERE name = ?", 
-                                            (profile_name,))
-            )).first()
+            profile = session.query(EditingProfile).filter_by(name=profile_name).first()
             
             if not profile:
+                session.close()
                 profile = self.database.create_profile(profile_name)
+                session = self.database.get_session()
+                profile = session.query(EditingProfile).filter_by(name=profile_name).first()
             
             # Detect scenes
             if progress_callback:
@@ -66,7 +67,6 @@ class StyleLearner:
             voice_segments = self.audio_analyzer.detect_voice_segments(audio)
             
             # Get total duration
-            from moviepy.editor import VideoFileClip
             video = VideoFileClip(video_path)
             total_duration = video.duration
             video.close()

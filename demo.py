@@ -40,7 +40,7 @@ def print_tree(directory, prefix="", max_depth=3, current_depth=0):
     except PermissionError:
         pass
 
-project_root = "/home/runner/work/auto/auto"
+project_root = os.path.dirname(os.path.abspath(__file__))
 print_tree(project_root)
 print()
 
