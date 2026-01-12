@@ -1,0 +1,31 @@
+{
+    "app_name": "YouTube Auto Content Generator",
+    "version": "1.0.0",
+    "default_output_dir": "output",
+    "default_tts_engine": "gtts",
+    "default_channel_type": "informational",
+    "video_settings": {
+        "resolution": [1280, 720],
+        "fps": 24,
+        "codec": "libx264",
+        "audio_codec": "aac"
+    },
+    "crawler_settings": {
+        "max_news_results": 5,
+        "request_timeout": 10,
+        "polite_delay": 1
+    },
+    "tts_settings": {
+        "gtts": {
+            "lang": "ko"
+        },
+        "pyttsx3": {
+            "rate": 150,
+            "volume": 1.0
+        }
+    },
+    "youtube_settings": {
+        "default_category": "22",
+        "default_privacy": "private"
+    }
+}
