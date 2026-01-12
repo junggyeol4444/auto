@@ -10,6 +10,12 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 
+def ensure_directory(path: str) -> None:
+    """Helper function to ensure output directory exists"""
+    dir_path = os.path.dirname(path) if os.path.dirname(path) else '.'
+    os.makedirs(dir_path, exist_ok=True)
+
+
 class TTSEngine:
     """Base class for TTS engines"""
     
@@ -39,7 +45,7 @@ class GTTSEngine(TTSEngine):
         
         try:
             # Create output directory if it doesn't exist
-            os.makedirs(os.path.dirname(output_path) if os.path.dirname(output_path) else '.', exist_ok=True)
+            ensure_directory(output_path)
             
             tts = self.gTTS(text=text, lang=self.lang, slow=False)
             tts.save(output_path)
@@ -79,7 +85,7 @@ class Pyttsx3Engine(TTSEngine):
         
         try:
             # Create output directory if it doesn't exist
-            os.makedirs(os.path.dirname(output_path) if os.path.dirname(output_path) else '.', exist_ok=True)
+            ensure_directory(output_path)
             
             self.engine.save_to_file(text, output_path)
             self.engine.runAndWait()
@@ -132,7 +138,7 @@ class CustomTTSEngine(TTSEngine):
         
         try:
             # Create output directory if it doesn't exist
-            os.makedirs(os.path.dirname(output_path) if os.path.dirname(output_path) else '.', exist_ok=True)
+            ensure_directory(output_path)
             
             if self.engine_type == 'coqui':
                 self.model.tts_to_file(text=text, file_path=output_path)

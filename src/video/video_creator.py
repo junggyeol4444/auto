@@ -6,8 +6,12 @@ import logging
 import os
 from typing import List, Optional, Tuple
 from pathlib import Path
+from urllib.parse import urlencode
 
 logger = logging.getLogger(__name__)
+
+# Constants
+UPLOAD_CHUNK_SIZE = 1024 * 1024  # 1MB chunks
 
 
 class VideoCreator:

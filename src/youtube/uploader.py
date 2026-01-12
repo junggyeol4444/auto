@@ -10,6 +10,9 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+# Constants
+UPLOAD_CHUNK_SIZE = 1024 * 1024  # 1MB chunks
+
 
 class YouTubeUploader:
     """Class for uploading videos to YouTube using YouTube Data API v3"""
@@ -114,7 +117,7 @@ class YouTubeUploader:
                 video_path,
                 mimetype='video/*',
                 resumable=True,
-                chunksize=1024*1024  # 1MB chunks
+                chunksize=UPLOAD_CHUNK_SIZE
             )
             
             # Create upload request

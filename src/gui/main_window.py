@@ -4,9 +4,20 @@ Provides intuitive user interface using CustomTkinter
 """
 import logging
 import os
+import sys
 import threading
 from typing import Optional
 from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+# Import core modules
+from crawler import ContentCrawler
+from content import ContentRestructurer
+from tts import TTSManager
+from video import VideoCreator
+from youtube import YouTubeUploader
 
 logger = logging.getLogger(__name__)
 
@@ -209,12 +220,6 @@ class AutoContentGeneratorGUI:
     def _generate_content(self, topic: str):
         """Generate content (runs in separate thread)"""
         try:
-            from ..crawler import ContentCrawler
-            from ..content import ContentRestructurer
-            from ..tts import TTSManager
-            from ..video import VideoCreator
-            from ..youtube import YouTubeUploader
-            
             # Get options
             channel_type = self.channel_type_var.get()
             tts_engine = self.tts_engine_var.get()

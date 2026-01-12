@@ -1,0 +1,132 @@
+YouTube Auto Content Generator - Project Summary
+================================================
+
+Project Type: Python Application
+Purpose: Automated YouTube video content generation from web-crawled data
+Language: Python 3.8+
+GUI Framework: CustomTkinter
+
+Core Features:
+--------------
+1. Web Crawling
+   - News sites: Naver News, Daum News
+   - Wiki sources: Wikipedia, NamuWiki
+   - Structured data collection
+
+2. Content Restructuring
+   - 3 template types: News Report, Informational, Storytelling
+   - Automatic script generation
+   - Natural Korean language processing
+
+3. Text-to-Speech
+   - gTTS (Google TTS) - online
+   - pyttsx3 - offline
+   - Custom TTS support (Coqui TTS framework)
+
+4. Video Creation
+   - MoviePy-based video generation
+   - Audio-video synchronization
+   - Background image/color support
+
+5. YouTube Integration
+   - Automatic video upload via YouTube Data API v3
+   - SEO-optimized metadata generation
+   - Privacy control and thumbnail support
+
+6. User Interface
+   - CustomTkinter-based GUI
+   - Real-time progress tracking
+   - Intuitive topic and style selection
+
+Project Structure:
+------------------
+auto/
+├── src/                      # Source code
+│   ├── crawler/              # Web crawling
+│   ├── content/              # Content restructuring
+│   ├── tts/                  # Text-to-speech
+│   ├── video/                # Video creation
+│   ├── youtube/              # YouTube API
+│   └── gui/                  # User interface
+├── templates/                # Script templates
+├── config/                   # Configuration files
+├── docs/                     # Documentation
+├── main.py                   # Application entry point
+├── examples.py               # Usage examples
+├── setup.py                  # Setup validator
+└── requirements.txt          # Dependencies
+
+Key Dependencies:
+-----------------
+- requests, beautifulsoup4, lxml (web scraping)
+- gTTS, pyttsx3 (text-to-speech)
+- moviepy (video editing)
+- google-api-python-client (YouTube API)
+- customtkinter (GUI)
+
+Documentation:
+--------------
+- README.md - Main documentation
+- QUICKSTART.md - Quick start guide
+- docs/USER_GUIDE.md - Detailed user guide
+- docs/API.md - API documentation
+- CONTRIBUTING.md - Contribution guidelines
+- CHANGELOG.md - Version history
+- LICENSE - MIT License
+
+Usage Modes:
+------------
+1. GUI Mode: python main.py
+2. Programmatic: Import modules and use API
+3. Examples: python examples.py
+
+Testing Status:
+---------------
+✓ All modules import successfully
+✓ Content restructurer tested
+✓ TTS module tested (gTTS requires network)
+✓ Video creator tested (MoviePy compatible)
+✓ YouTube uploader tested (requires credentials)
+✓ GUI module tested
+
+Known Limitations:
+------------------
+- gTTS requires internet connection
+- MoviePy text overlay requires ImageMagick (optional)
+- YouTube API has daily quota limits
+- Web crawlers may need updates if site structures change
+
+Security Considerations:
+------------------------
+- credentials.json should never be committed (in .gitignore)
+- Respect robots.txt and rate limiting
+- Comply with content licensing and fair use
+- Review YouTube API Terms of Service
+
+Future Enhancements:
+--------------------
+- Video thumbnail generation
+- Multiple language support
+- Advanced editing features
+- Background music support
+- Batch processing
+- Template customization UI
+- More TTS engines
+- Additional data sources
+
+Installation:
+-------------
+1. Clone repository
+2. Install dependencies: pip install -r requirements.txt
+3. Run setup: python setup.py
+4. (Optional) Configure YouTube API credentials
+
+Support:
+--------
+GitHub: https://github.com/junggyeol4444/auto
+Issues: https://github.com/junggyeol4444/auto/issues
+
+License: MIT License
+Author: junggyeol4444
+Version: 1.0.0
+Date: January 12, 2026

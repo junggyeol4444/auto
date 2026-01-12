@@ -8,6 +8,7 @@ import logging
 import time
 from typing import Dict, List, Optional
 from datetime import datetime
+from urllib.parse import urlencode
 
 logger = logging.getLogger(__name__)
 
@@ -47,7 +48,8 @@ class NaverNewsCrawler(BaseCrawler):
                 'sort': 0  # Latest
             }
             
-            soup = self.fetch_page(base_url + '?' + '&'.join([f"{k}={v}" for k, v in params.items()]))
+            url = f"{base_url}?{urlencode(params)}"
+            soup = self.fetch_page(url)
             if not soup:
                 return articles
             
@@ -96,7 +98,8 @@ class DaumNewsCrawler(BaseCrawler):
                 'sort': 'recency'
             }
             
-            soup = self.fetch_page(base_url + '?' + '&'.join([f"{k}={v}" for k, v in params.items()]))
+            url = f"{base_url}?{urlencode(params)}"
+            soup = self.fetch_page(url)
             if not soup:
                 return articles
             
