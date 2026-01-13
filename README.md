@@ -1,8 +1,24 @@
 # Smart Video Editor Pro
 
-> 📖 **한국어 문서**: [README_KR.md](README_KR.md) | [QUICKSTART_KR.md](QUICKSTART_KR.md)
+> 📖 **한국어 문서**: [README_KR.md](README_KR.md) | [QUICKSTART_KR.md](QUICKSTART_KR.md) | [RUN_GUIDE_KR.md](RUN_GUIDE_KR.md)
 
 **Smart Video Editor Pro** is a Windows desktop application that automates video editing tasks entirely offline. It learns editing styles from YouTube videos and applies those patterns to your own videos.
+
+## 🚀 Quick Start (Recommended)
+
+### Windows
+1. Download/clone the repository
+2. **Double-click `run.bat`**
+3. First run: automatic setup
+4. Application starts!
+
+### macOS/Linux
+1. Download/clone the repository
+2. Terminal: **`./run.sh`**
+3. First run: automatic setup
+4. Application starts!
+
+> 📘 Detailed guide: [RUN_GUIDE_KR.md](RUN_GUIDE_KR.md) (Korean)
 
 ## Features
 
