@@ -1,0 +1,53 @@
+MIT License
+
+Copyright (c) 2026 junggyeol4444
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+IMPORTANT NOTICES:
+
+1. WEB SCRAPING DISCLAIMER
+   This software includes web scraping functionality. Users are responsible for:
+   - Complying with websites' Terms of Service
+   - Respecting robots.txt files
+   - Following rate limiting guidelines
+   - Adhering to copyright laws
+
+2. YOUTUBE API
+   Use of YouTube API is subject to YouTube's Terms of Service:
+   https://developers.google.com/youtube/terms/api-services-terms-of-service
+
+3. CONTENT RIGHTS
+   Users are responsible for:
+   - Ensuring proper rights to scraped content
+   - Complying with fair use principles
+   - Respecting intellectual property rights
+   - Proper attribution when required
+
+4. TEXT-TO-SPEECH
+   TTS engines may have their own licenses. Review and comply with:
+   - gTTS: https://github.com/pndurette/gTTS
+   - pyttsx3: https://github.com/nateshmbhat/pyttsx3
+   - Coqui TTS: https://github.com/coqui-ai/TTS
+
+5. THIRD-PARTY DEPENDENCIES
+   This software uses various open-source libraries, each with their own licenses.
+   See requirements.txt for the full list of dependencies.
