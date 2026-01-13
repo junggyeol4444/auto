@@ -1,0 +1,51 @@
+{
+  "_comment": "이 파일을 config.json으로 복사하고 실제 API 키를 입력하세요",
+  "api_keys": {
+    "upbit": {
+      "access_key": "YOUR_UPBIT_ACCESS_KEY",
+      "secret_key": "YOUR_UPBIT_SECRET_KEY"
+    },
+    "binance": {
+      "api_key": "YOUR_BINANCE_API_KEY",
+      "secret_key": "YOUR_BINANCE_SECRET_KEY"
+    },
+    "telegram": {
+      "bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
+      "chat_id": "YOUR_TELEGRAM_CHAT_ID"
+    },
+    "email": {
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "sender_email": "your_email@gmail.com",
+      "sender_password": "YOUR_APP_PASSWORD"
+    },
+    "molit": {
+      "service_key": "YOUR_MOLIT_SERVICE_KEY"
+    },
+    "bok": {
+      "api_key": "YOUR_BOK_API_KEY"
+    },
+    "fred": {
+      "api_key": "YOUR_FRED_API_KEY"
+    },
+    "dart": {
+      "api_key": "YOUR_DART_API_KEY"
+    },
+    "exchange_rate_api": {
+      "api_key": "YOUR_EXCHANGE_RATE_API_KEY"
+    }
+  },
+  "settings": {
+    "language": "ko",
+    "theme": "dark",
+    "update_interval": 60,
+    "alert_enabled": true,
+    "chart_style": "candle"
+  },
+  "alerts": {
+    "crypto": [],
+    "forex": [],
+    "real_estate": [],
+    "stocks": []
+  }
+}
