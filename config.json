@@ -1,0 +1,94 @@
+{
+    "twitch": {
+        "client_id": "YOUR_TWITCH_CLIENT_ID",
+        "client_secret": "YOUR_TWITCH_CLIENT_SECRET",
+        "oauth_token": "YOUR_TWITCH_OAUTH_TOKEN",
+        "channel": "YOUR_CHANNEL_NAME"
+    },
+    "youtube": {
+        "client_secrets_file": "client_secrets.json",
+        "channel_id": "YOUR_YOUTUBE_CHANNEL_ID"
+    },
+    "chzzk": {
+        "channel_id": "YOUR_CHZZK_CHANNEL_ID"
+    },
+    "discord": {
+        "bot_token": "YOUR_DISCORD_BOT_TOKEN",
+        "webhook_url": "YOUR_DISCORD_WEBHOOK_URL"
+    },
+    "twitter": {
+        "api_key": "YOUR_TWITTER_API_KEY",
+        "api_secret": "YOUR_TWITTER_API_SECRET",
+        "access_token": "YOUR_TWITTER_ACCESS_TOKEN",
+        "access_token_secret": "YOUR_TWITTER_ACCESS_TOKEN_SECRET"
+    },
+    "obs": {
+        "host": "localhost",
+        "port": 4455,
+        "password": "YOUR_OBS_PASSWORD"
+    },
+    "moderation": {
+        "enable_profanity_filter": true,
+        "enable_spam_detection": true,
+        "timeout_duration": 600,
+        "warning_threshold": 3,
+        "ban_threshold": 5,
+        "spam_message_threshold": 5,
+        "spam_time_window": 60,
+        "link_limit": 3
+    },
+    "translation": {
+        "enabled": true,
+        "target_languages": ["ko", "en", "ja", "zh-CN"],
+        "overlay_enabled": true
+    },
+    "highlight_detection": {
+        "kill_detection": true,
+        "laugh_detection": true,
+        "chat_burst_detection": true,
+        "volume_spike_detection": true,
+        "chat_burst_threshold": 10,
+        "volume_threshold": 1.5,
+        "laugh_sensitivity": 0.7
+    },
+    "clip": {
+        "auto_create": true,
+        "before_seconds": 10,
+        "after_seconds": 10,
+        "local_save": true,
+        "twitch_clip": true
+    },
+    "music": {
+        "enabled": true,
+        "command": "!sr",
+        "max_duration": 600,
+        "volume": 0.5
+    },
+    "points": {
+        "enabled": true,
+        "points_per_minute": 10,
+        "bonus_subscriber": 2.0,
+        "bonus_follower": 1.5
+    },
+    "optimization": {
+        "auto_title": true,
+        "auto_tags": true,
+        "auto_thumbnail": true,
+        "use_trending_keywords": true
+    },
+    "upload": {
+        "auto_upload": false,
+        "platforms": ["youtube", "shorts", "twitter"],
+        "privacy": "public",
+        "notify_discord": true,
+        "notify_twitter": true
+    },
+    "paths": {
+        "output": "./output",
+        "clips": "./output/clips",
+        "shorts": "./output/shorts",
+        "stats": "./output/stats",
+        "cache": "./cache",
+        "data": "./data"
+    }
+}

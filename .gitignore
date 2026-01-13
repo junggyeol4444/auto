@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 설정 파일 (민감 정보 포함)
+client_secrets.json
+*.pem
+*.key
+
+# 캐시 및 임시 파일
+cache/
+*.tmp
+*.log
+
+# 출력 파일 (선택적으로 제외)
+output/clips/*.mp4
+output/shorts/*.mp4
+output/stats/*.json
+
+# 데이터베이스
+*.db
+*.sqlite
+
+# OS
+.DS_Store
+Thumbs.db
+
+# FFmpeg 임시 파일
+*.ffindex
+*.ffpreset
