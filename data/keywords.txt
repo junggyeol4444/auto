@@ -1,0 +1,73 @@
+# 하이라이트 감지 키워드
+# 킬 관련
+kill
+double kill
+triple kill
+quadra kill
+penta kill
+victory
+defeat
+ace
+shutdown
+legendary
+killing spree
+rampage
+unstoppable
+godlike
+dominating
+먹었다
+잡았다
+킬
+에이스
+승리
+패배
+
+# 반응 키워드
+ㅋㅋㅋ
+ㅋㅋ
+ㅎㅎㅎ
+ㅎㅎ
+lol
+lmao
+rofl
+omg
+wow
+wtf
+헐
+대박
+미쳤다
+개쩐다
+쩐다
+ㄷㄷㄷ
+ㄷㄷ
+와
+우와
+개웃겨
+웃겨
+
+# 게임 이벤트
+victory royale
+winner winner
+chicken dinner
+team eliminated
+squad eliminated
+match point
+game over
+you died
+mission complete
+level up
+achievement
+legendary drop
+epic drop
+rare drop
+
+# 감정 표현
+오
+우
+앗
+어
+헉
+허
+하
+아
+야
