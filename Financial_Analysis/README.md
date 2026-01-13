@@ -35,7 +35,25 @@ CustomTkinter 기반 모던 GUI를 포함하며, 암호화폐, 환율, 부동산
 - ✅ 이메일 알림 (SMTP)
 - ✅ 윈도우 팝업 알림
 
-## 설치 방법
+## 빠른 시작 (간편 실행)
+
+### Windows 사용자
+**더블클릭으로 실행**: `run.bat` 파일을 더블클릭하면 자동으로 프로그램이 실행됩니다.
+```cmd
+run.bat
+```
+
+### Mac/Linux 사용자  
+**터미널에서 실행**:
+```bash
+./run.sh
+```
+
+**참고**: `run.bat` / `run.sh` 스크립트는 자동으로 Python 확인 및 패키지 설치를 수행합니다.
+
+---
+
+## 수동 설치 및 실행 (선택사항)
 
 ### 1. Python 설치
 Python 3.8 이상이 필요합니다. [Python 공식 사이트](https://www.python.org/downloads/)에서 다운로드하세요.
@@ -99,15 +117,28 @@ python main.py
 2. "설정 저장" 버튼으로 저장
 3. "테스트 알림 전송" 버튼으로 알림 테스트
 
-## Windows EXE 빌드
+## Windows EXE 빌드 (독립 실행 파일 생성)
 
-### PyInstaller 사용
+Windows에서 Python 설치 없이 실행 가능한 EXE 파일을 만들 수 있습니다.
+
+### 간편 빌드 방법
+**더블클릭으로 빌드**: `build_exe.bat` 파일을 더블클릭하면 자동으로 EXE를 생성합니다.
+```cmd
+build_exe.bat
+```
+
+**Mac/Linux에서 빌드**:
+```bash
+./build_exe.sh
+```
+
+빌드된 EXE 파일은 `dist` 폴더에 생성됩니다: `dist\금융분석시스템.exe`
+
+### 수동 빌드 방법 (선택사항)
 ```bash
 cd Financial_Analysis
 pyinstaller --onefile --windowed --name "금융분석시스템" main.py
 ```
-
-빌드된 EXE 파일은 `dist` 폴더에 생성됩니다.
 
 ### 주의사항
 - `config.json` 파일은 EXE 파일과 같은 폴더에 위치해야 합니다.
