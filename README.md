@@ -76,12 +76,41 @@ A comprehensive Windows desktop application for automating content creation and 
 
 ## 📦 Installation
 
-### Prerequisites
+### Quick Start (Recommended)
+
+#### Windows Users
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/junggyeol4444/auto.git
+   cd auto
+   ```
+
+2. **Double-click `run.bat`** to launch the application
+   - First run: Automatically creates virtual environment and installs dependencies
+   - Subsequent runs: Launches the application directly
+
+#### Linux/Mac Users
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/junggyeol4444/auto.git
+   cd auto
+   ```
+
+2. **Run the launch script**
+   ```bash
+   ./run.sh
+   ```
+   - First run: Automatically creates virtual environment and installs dependencies
+   - Subsequent runs: Launches the application directly
+
+### Manual Installation
+
+#### Prerequisites
 - Python 3.8 or higher
 - Windows OS (for EXE build)
 - Git
 
-### Setup Steps
+#### Setup Steps
 
 1. **Clone the repository**
    ```bash
@@ -241,7 +270,23 @@ Social_Media_Automation/
 
 ## 🔧 Building EXE
 
-To create a Windows executable:
+### Using the Spec File (Recommended)
+
+We provide a pre-configured PyInstaller spec file for easy building:
+
+```bash
+# Install PyInstaller
+pip install pyinstaller
+
+# Build using the spec file
+pyinstaller social_media_suite.spec
+```
+
+The executable will be created in `dist/Social_Media_Automation_Suite.exe`
+
+### Manual Build
+
+Alternatively, build manually:
 
 ```bash
 pip install pyinstaller
@@ -256,6 +301,17 @@ pyinstaller --name "Social Media Suite" \
 ```
 
 The executable will be in the `dist` folder.
+
+### Detailed Instructions
+
+For comprehensive building instructions including:
+- Building for different platforms (Windows, macOS, Linux)
+- Customizing the build
+- Adding icons
+- Troubleshooting build issues
+- Creating installers
+
+See **[BUILD.md](BUILD.md)** for complete documentation.
 
 ## 🎨 Screenshots
 

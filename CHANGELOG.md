@@ -2,6 +2,45 @@
 
 All notable changes to the Social Media Automation Suite project.
 
+## [1.0.2] - 2024-01-13
+
+### Added
+
+#### Executable Files and Build Scripts
+- **social_media_suite.spec**: PyInstaller specification file for building Windows EXE
+  - Pre-configured with all dependencies and data files
+  - Includes hidden imports for all required modules
+  - Windowed mode enabled (no console)
+  - UPX compression enabled for smaller file size
+
+- **run.bat**: Windows batch script for easy launching
+  - Automatic virtual environment creation
+  - Automatic dependency installation
+  - One-click application launch
+  
+- **run.sh**: Shell script for Linux/Mac users
+  - Automatic virtual environment creation
+  - Automatic dependency installation
+  - One-click application launch
+  - Made executable with proper permissions
+
+- **BUILD.md**: Comprehensive build documentation
+  - Instructions for building Windows EXE
+  - Platform-specific build guides (Windows, macOS, Linux)
+  - Troubleshooting section
+  - Distribution guidelines
+  - Advanced configuration options
+
+#### Documentation Updates
+- Updated README.md with quick start instructions using run scripts
+- Enhanced Building EXE section with spec file usage
+- Added references to BUILD.md for detailed instructions
+
+### Notes
+These additions make it significantly easier for users to run and build the application without manual setup. The executable scripts handle all environment setup automatically.
+
+---
+
 ## [1.0.1] - 2024-01-13
 
 ### Security Fixes
