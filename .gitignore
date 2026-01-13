@@ -50,7 +50,9 @@ logs/
 database/*.db
 
 # Config files with sensitive data
-config.json
+# Keep the template config.json in repo
+# But ignore local config with actual keys
+config.local.json
 .env
 *.secret
 
@@ -76,9 +78,10 @@ Thumbs.db
 .DS_Store
 
 # PyInstaller
-*.spec
 build/
 dist/
+# Keep BotFramework.spec - it's our custom build configuration
+!BotFramework.spec
 
 # Jupyter Notebook
 .ipynb_checkpoints

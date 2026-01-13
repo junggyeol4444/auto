@@ -2,6 +2,24 @@
 
 다양한 플랫폼 챗봇 및 자동화 봇 통합 개발 프레임워크
 
+## 🚀 빠른 시작 (실행 파일)
+
+### ⚡ Windows 사용자
+1. `run.bat` 파일을 더블클릭
+2. 자동으로 환경 설정 및 프로그램 실행
+3. GUI에서 API 키 입력 후 사용 시작!
+
+### ⚡ Linux/Mac 사용자
+1. 터미널에서 `./run.sh` 실행
+2. 자동으로 환경 설정 및 프로그램 실행
+3. GUI에서 API 키 입력 후 사용 시작!
+
+### 💎 Windows EXE 파일 생성
+- `build_exe.bat` 실행 → `dist/BotFramework.exe` 생성
+- 설치 없이 바로 실행 가능한 단일 실행 파일
+
+---
+
 ## 🌟 주요 기능
 
 ### 1. 챗봇 플랫폼 지원
@@ -40,6 +58,11 @@
 ```
 Bot_Framework/
 ├── main.py                      # 프로그램 진입점
+├── run.bat                      # ⭐ Windows 실행 스크립트
+├── run.sh                       # ⭐ Linux/Mac 실행 스크립트
+├── build_exe.bat                # ⭐ Windows EXE 빌드 스크립트
+├── build_exe.sh                 # ⭐ Linux/Mac EXE 빌드 스크립트
+├── BotFramework.spec            # ⭐ PyInstaller 설정 파일
 ├── config.json                  # 설정 파일
 ├── requirements.txt             # 의존성 목록
 ├── README.md                    # 사용 설명서
@@ -114,7 +137,27 @@ pip install -r requirements.txt
 
 ## 🎮 사용 방법
 
-### 1. 프로그램 실행
+### 방법 1: 실행 스크립트 사용 (권장)
+
+#### Windows 사용자:
+```bash
+# 더블클릭 또는 명령 프롬프트에서
+run.bat
+```
+
+#### Linux/Mac 사용자:
+```bash
+# 터미널에서
+./run.sh
+```
+
+**실행 스크립트의 장점:**
+- ✅ 자동으로 가상환경 생성 및 활성화
+- ✅ 필요한 패키지 자동 설치
+- ✅ 한 번 클릭으로 프로그램 실행
+- ✅ 의존성 관리 자동화
+
+### 방법 2: 수동 실행
 ```bash
 python main.py
 ```
@@ -194,11 +237,39 @@ python main.py
 
 ## 📦 Windows EXE 빌드
 
+### 방법 1: 빌드 스크립트 사용 (권장)
+
+#### Windows:
+```bash
+build_exe.bat
+```
+
+#### Linux/Mac (크로스 컴파일):
+```bash
+./build_exe.sh
+```
+
+**빌드 스크립트의 장점:**
+- ✅ PyInstaller 자동 설치
+- ✅ 이전 빌드 파일 자동 정리
+- ✅ 최적화된 빌드 설정 적용
+- ✅ 빌드 성공/실패 상태 확인
+
+빌드 완료 후:
+- 📁 `dist/BotFramework.exe` 파일이 생성됩니다
+- 📋 `config.json` 파일을 함께 배포하세요
+- 🚀 EXE 파일을 더블클릭하여 실행
+
+### 방법 2: 수동 빌드
+
 ```bash
 # PyInstaller 설치
 pip install pyinstaller
 
-# EXE 파일 생성
+# EXE 파일 생성 (Spec 파일 사용)
+pyinstaller BotFramework.spec
+
+# 또는 간단한 빌드
 pyinstaller --onefile --windowed --name BotFramework main.py
 
 # 생성된 파일: dist/BotFramework.exe
