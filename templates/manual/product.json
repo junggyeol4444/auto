@@ -1,0 +1,41 @@
+{
+  "type": "product",
+  "name": "제품 사용 설명서",
+  "sections": [
+    {
+      "title": "제품 소개",
+      "subsections": ["제품 개요", "주요 특징", "사양"]
+    },
+    {
+      "title": "구성품 확인",
+      "subsections": ["기본 구성품", "별매품"]
+    },
+    {
+      "title": "설치 방법",
+      "subsections": ["설치 전 준비사항", "설치 순서", "설치 확인"]
+    },
+    {
+      "title": "사용 방법",
+      "subsections": ["기본 사용법", "고급 기능", "사용 팁"]
+    },
+    {
+      "title": "주의사항",
+      "subsections": ["안전 주의사항", "관리 및 보관", "폐기 방법"]
+    },
+    {
+      "title": "문제 해결",
+      "subsections": ["자주 묻는 질문 (FAQ)", "오류 해결 방법", "A/S 안내"]
+    },
+    {
+      "title": "용어집",
+      "subsections": ["전문 용어 설명"]
+    }
+  ],
+  "templates": {
+    "feature_description": "{feature_name}: {description}",
+    "step": "{step_number}. {action}",
+    "warning": "⚠️ 주의: {warning_text}",
+    "tip": "💡 팁: {tip_text}",
+    "faq": "Q: {question}\nA: {answer}"
+  }
+}

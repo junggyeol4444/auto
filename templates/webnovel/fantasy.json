@@ -1,0 +1,75 @@
+{
+  "genre": "fantasy",
+  "name": "판타지",
+  "worldbuilding": [
+    "이세계 전이: 평범한 일상에서 갑자기 다른 세계로 소환되다",
+    "시스템 각성: 어느 날 갑자기 게임과 같은 시스템이 눈앞에 나타나다",
+    "마법 세계: 마법과 검이 공존하는 판타지 세계",
+    "던전 세계: 던전이 출현하고 헌터가 등장한 현대 지구"
+  ],
+  "plot_templates": {
+    "opening": [
+      "{protagonist}는 평범한 {occupation}이었다. 어느 날, {event}가 일어났다.",
+      "세계가 변했다. {event}로 인해 {protagonist}의 일상은 완전히 뒤바뀌었다.",
+      "{protagonist}는 {place}에서 눈을 떴다. 이곳은 분명 {familiar_place}이 아니었다."
+    ],
+    "development": [
+      "{protagonist}는 자신의 능력 {ability}을(를) 발견했다.",
+      "새로운 세계에서 {protagonist}는 {mentor}를 만났다.",
+      "첫 번째 시련이 다가왔다. {challenge}가 {protagonist}를 위협했다."
+    ],
+    "climax": [
+      "마침내 {protagonist}는 {villain}와 대면했다.",
+      "최종 결전이 시작되었다. {protagonist}의 모든 것이 시험받는 순간이었다.",
+      "{protagonist}는 숨겨진 진실을 알게 되었다."
+    ],
+    "resolution": [
+      "전투가 끝났다. {protagonist}는 {result}를 얻었다.",
+      "새로운 시작이었다. {protagonist}의 여정은 계속될 것이다.",
+      "평화가 찾아왔지만, {protagonist}는 알고 있었다. 이것은 시작에 불과하다는 것을."
+    ]
+  },
+  "character_archetypes": {
+    "protagonist": {
+      "traits": ["용감한", "지혜로운", "강인한", "냉철한", "정의로운"],
+      "abilities": ["검술", "마법", "치유", "암살", "소환"],
+      "backgrounds": ["평범한 학생", "전직 군인", "게임 폐인", "회사원", "백수"]
+    },
+    "heroine": {
+      "traits": ["아름다운", "강한", "지적인", "신비로운", "츤데레"],
+      "roles": ["귀족 영애", "마법사", "기사", "암살자", "성녀"]
+    },
+    "mentor": {
+      "traits": ["지혜로운", "강력한", "신비한", "엄격한"],
+      "roles": ["은둔 고수", "마법 대현자", "전설의 검사", "길드 마스터"]
+    },
+    "villain": {
+      "traits": ["잔인한", "교활한", "강력한", "광기의"],
+      "roles": ["마왕", "타락한 영웅", "악의 조직 수장", "차원의 침략자"]
+    }
+  },
+  "scene_templates": {
+    "battle": [
+      "{character1}의 {weapon}이 번개같이 날아들었다. {character2}는 간신히 {action}으로 막아냈다.",
+      "검과 검이 부딪치는 소리가 울려 퍼졌다. 불꽃이 튀었다.",
+      "{character}의 마법진이 빛났다. {spell} 주문이 발동되었다."
+    ],
+    "dialogue": [
+      "\"{dialogue1}\" {character1}이(가) 말했다.",
+      "\"{dialogue2}\" {character2}이(가)대답했다.",
+      "두 사람의 시선이 마주쳤다. 말없는 대화가 오갔다."
+    ],
+    "description": [
+      "{place}는 {adjective} 분위기로 가득했다.",
+      "하늘에서 {weather}가 내리기 시작했다.",
+      "{character}의 눈빛이 {emotion}로 흔들렸다."
+    ]
+  },
+  "conflicts": [
+    "생존: 위협적인 환경에서 살아남아야 한다",
+    "성장: 강해져야 한다. 더 강한 적들이 기다린다",
+    "복수: 소중한 것을 빼앗긴 과거를 바로잡아야 한다",
+    "운명: 세계를 구원해야 하는 운명을 짊어졌다",
+    "경쟁: 다른 이들과의 경쟁에서 승리해야 한다"
+  ]
+}

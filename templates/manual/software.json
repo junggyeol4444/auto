@@ -1,0 +1,42 @@
+{
+  "type": "software",
+  "name": "소프트웨어 매뉴얼",
+  "sections": [
+    {
+      "title": "소개",
+      "subsections": ["프로그램 개요", "주요 기능", "시스템 요구사항", "라이선스 정보"]
+    },
+    {
+      "title": "설치",
+      "subsections": ["다운로드", "설치 과정", "초기 설정", "업데이트 방법"]
+    },
+    {
+      "title": "사용자 인터페이스",
+      "subsections": ["메인 화면", "메뉴 구조", "도구 모음", "단축키"]
+    },
+    {
+      "title": "기능 설명",
+      "subsections": ["기본 기능", "고급 기능", "설정 옵션"]
+    },
+    {
+      "title": "튜토리얼",
+      "subsections": ["시작하기", "기본 작업", "실전 예제"]
+    },
+    {
+      "title": "문제 해결",
+      "subsections": ["자주 묻는 질문 (FAQ)", "오류 메시지", "로그 확인", "지원 문의"]
+    },
+    {
+      "title": "부록",
+      "subsections": ["용어집", "업데이트 기록", "참고 자료"]
+    }
+  ],
+  "templates": {
+    "feature_description": "### {feature_name}\n{description}\n\n**사용 방법:**\n{usage}",
+    "menu_item": "- **{menu_name}**: {description}",
+    "shortcut": "| {action} | {shortcut_key} |",
+    "requirement": "- {component}: {specification}",
+    "faq": "#### Q: {question}\n\n**A:** {answer}\n",
+    "error": "**오류 코드 {code}**: {error_name}\n\n**원인:** {cause}\n\n**해결 방법:** {solution}"
+  }
+}
