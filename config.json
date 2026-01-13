@@ -1,0 +1,35 @@
+{
+  "thumbnail": {
+    "output_size": [1280, 720],
+    "default_genre": "게임",
+    "ab_test_versions": 9,
+    "color_schemes": {
+      "빨강+노랑": {"primary": "#FF0000", "secondary": "#FFFF00"},
+      "파랑+흰색": {"primary": "#0066FF", "secondary": "#FFFFFF"},
+      "검정+금색": {"primary": "#000000", "secondary": "#FFD700"},
+      "형광": {"primary": "#00FF00", "secondary": "#FF00FF"}
+    },
+    "genres": ["게임", "브이로그", "리뷰", "먹방", "교육"]
+  },
+  "synthesis": {
+    "background_colors": {
+      "흰색": "#FFFFFF",
+      "검정": "#000000",
+      "파랑": "#0066FF",
+      "빨강": "#FF0000"
+    },
+    "filters": ["original", "vintage", "vivid", "warm", "cool"]
+  },
+  "paths": {
+    "fonts": "assets/fonts",
+    "effects": "assets/effects",
+    "backgrounds": "assets/backgrounds",
+    "output_thumbnails": "output/thumbnails",
+    "output_synthesis": "output/synthesis"
+  },
+  "performance": {
+    "thumbnail_timeout": 30,
+    "background_removal_timeout": 5,
+    "face_swap_timeout": 10
+  }
+}
