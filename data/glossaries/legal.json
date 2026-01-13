@@ -1,0 +1,54 @@
+{
+  "terms": [
+    {
+      "source": "계약",
+      "target": "contract",
+      "category": "general"
+    },
+    {
+      "source": "소송",
+      "target": "lawsuit",
+      "category": "litigation"
+    },
+    {
+      "source": "피고",
+      "target": "defendant",
+      "category": "litigation"
+    },
+    {
+      "source": "원고",
+      "target": "plaintiff",
+      "category": "litigation"
+    },
+    {
+      "source": "변호사",
+      "target": "attorney",
+      "category": "general"
+    },
+    {
+      "source": "판결",
+      "target": "judgment",
+      "category": "litigation"
+    },
+    {
+      "source": "증거",
+      "target": "evidence",
+      "category": "general"
+    },
+    {
+      "source": "법원",
+      "target": "court",
+      "category": "general"
+    },
+    {
+      "source": "재판",
+      "target": "trial",
+      "category": "litigation"
+    },
+    {
+      "source": "합의",
+      "target": "settlement",
+      "category": "general"
+    }
+  ]
+}

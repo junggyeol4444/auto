@@ -1,0 +1,54 @@
+{
+  "terms": [
+    {
+      "source": "머신러닝",
+      "target": "machine learning",
+      "category": "AI"
+    },
+    {
+      "source": "인공지능",
+      "target": "artificial intelligence",
+      "category": "AI"
+    },
+    {
+      "source": "데이터베이스",
+      "target": "database",
+      "category": "general"
+    },
+    {
+      "source": "서버",
+      "target": "server",
+      "category": "infrastructure"
+    },
+    {
+      "source": "클라우드",
+      "target": "cloud",
+      "category": "infrastructure"
+    },
+    {
+      "source": "알고리즘",
+      "target": "algorithm",
+      "category": "general"
+    },
+    {
+      "source": "프레임워크",
+      "target": "framework",
+      "category": "development"
+    },
+    {
+      "source": "라이브러리",
+      "target": "library",
+      "category": "development"
+    },
+    {
+      "source": "API",
+      "target": "API",
+      "category": "development"
+    },
+    {
+      "source": "배포",
+      "target": "deployment",
+      "category": "devops"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "terms": [
+    {
+      "source": "심장",
+      "target": "heart",
+      "category": "anatomy"
+    },
+    {
+      "source": "혈압",
+      "target": "blood pressure",
+      "category": "vital_signs"
+    },
+    {
+      "source": "당뇨병",
+      "target": "diabetes",
+      "category": "disease"
+    },
+    {
+      "source": "고혈압",
+      "target": "hypertension",
+      "category": "disease"
+    },
+    {
+      "source": "처방전",
+      "target": "prescription",
+      "category": "general"
+    },
+    {
+      "source": "진단",
+      "target": "diagnosis",
+      "category": "general"
+    },
+    {
+      "source": "증상",
+      "target": "symptom",
+      "category": "general"
+    },
+    {
+      "source": "치료",
+      "target": "treatment",
+      "category": "general"
+    },
+    {
+      "source": "수술",
+      "target": "surgery",
+      "category": "procedure"
+    },
+    {
+      "source": "마취",
+      "target": "anesthesia",
+      "category": "procedure"
+    }
+  ]
+}

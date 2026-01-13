@@ -1,0 +1,14 @@
+{
+  "api_keys": {
+    "deepl": "",
+    "google": "",
+    "papago_client_id": "",
+    "papago_client_secret": "",
+    "openai": ""
+  },
+  "default_source_lang": "ko",
+  "default_target_lang": "en",
+  "default_engine": "google",
+  "cache_enabled": true,
+  "max_cache_size_mb": 100
+}
