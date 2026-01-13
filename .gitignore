@@ -1,0 +1,88 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Application specific
+cache/
+output/logs/*.log
+output/converted/*
+database/*.db
+database/*.db-journal
+
+# Credentials and sensitive data
+config.json
+client_secrets.json
+*.json.backup
+cache/sessions/*
+
+# Temporary files
+*.tmp
+temp-audio.m4a
+/tmp/
+
+# Build files
+build/
+dist/
+
+# But keep the PyInstaller spec file
+!social_media_suite.spec
+
+# OS specific
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Media files (optional - comment out if you want to track sample media)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+
+# Keep directory structure
+!.gitkeep
+!templates/*.json

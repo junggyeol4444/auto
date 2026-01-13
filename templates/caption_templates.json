@@ -1,0 +1,46 @@
+{
+  "templates": {
+    "simple": {
+      "format": "{content}\n\n{hashtags}",
+      "cta": "Follow for more! 👉"
+    },
+    "engaging": {
+      "format": "✨ {content}\n\n💬 What do you think? Comment below!\n\n{hashtags}",
+      "cta": "Tag a friend who needs to see this! 👥"
+    },
+    "promotional": {
+      "format": "🔥 {content}\n\n🎯 {cta}\n\n{hashtags}",
+      "cta": "Click the link in bio! 🔗"
+    },
+    "informative": {
+      "format": "📚 {content}\n\n💡 Save this for later!\n\n{hashtags}",
+      "cta": "Share with someone who needs this! 📤"
+    },
+    "motivational": {
+      "format": "💪 {content}\n\n🌟 You got this!\n\n{hashtags}",
+      "cta": "Double tap if you agree! ❤️"
+    }
+  },
+  "platform_specific": {
+    "instagram": {
+      "max_length": 2200,
+      "line_breaks": 2
+    },
+    "tiktok": {
+      "max_length": 2200,
+      "line_breaks": 1
+    },
+    "youtube": {
+      "max_length": 5000,
+      "line_breaks": 2
+    },
+    "twitter": {
+      "max_length": 280,
+      "line_breaks": 1
+    },
+    "facebook": {
+      "max_length": 63206,
+      "line_breaks": 2
+    }
+  }
+}
