@@ -294,6 +294,16 @@ This tool is for educational and personal use only. Please comply with each plat
 - Instagram 2FA requires manual intervention
 - Rate limits vary by platform
 
+## 🔒 Security
+
+Security is a priority. We regularly update dependencies to patch known vulnerabilities. See [SECURITY.md](SECURITY.md) for:
+- Security advisories
+- Vulnerability reports
+- Reporting security issues
+- Best practices
+
+**Latest Security Update (v1.0.1)**: Updated nltk (3.9) and Pillow (10.3.0) to fix critical vulnerabilities.
+
 ## 📮 Support
 
 For issues and questions:

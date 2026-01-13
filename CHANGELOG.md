@@ -2,6 +2,24 @@
 
 All notable changes to the Social Media Automation Suite project.
 
+## [1.0.1] - 2024-01-13
+
+### Security Fixes
+
+#### Updated Dependencies
+- **nltk**: Updated from 3.8.1 to 3.9
+  - Fixed: Unsafe deserialization vulnerability (CVE affecting versions < 3.9)
+  - Impact: Prevents potential remote code execution via malicious pickle files
+  
+- **Pillow**: Updated from 10.1.0 to 10.3.0
+  - Fixed: Buffer overflow vulnerability (CVE affecting versions < 10.3.0)
+  - Impact: Prevents potential memory corruption and crashes
+
+### Notes
+These updates address critical security vulnerabilities while maintaining backward compatibility. No code changes required - only dependency version updates.
+
+---
+
 ## [1.0.0] - 2024-01-13
 
 ### Added - Complete Initial Release

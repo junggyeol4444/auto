@@ -14,14 +14,14 @@ requests==2.31.0
 # Video/Image Processing
 moviepy==1.0.3
 opencv-python==4.8.1.78
-Pillow==10.1.0
+Pillow==10.3.0
 imageio==2.33.0
 imageio-ffmpeg==0.4.9
 
 # Natural Language Processing
 rake-nltk==1.0.6
 konlpy==0.6.0
-nltk==3.8.1
+nltk==3.9
 
 # Web Scraping
 beautifulsoup4==4.12.2
