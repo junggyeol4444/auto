@@ -6,7 +6,7 @@ import os
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QTabWidget, QWidget, 
                              QVBoxLayout, QHBoxLayout, QPushButton, QLabel, 
                              QLineEdit, QTextEdit, QFileDialog, QProgressBar,
-                             QComboBox, QMessageBox, QGroupBox, QCheckBox)
+                             QComboBox, QMessageBox, QGroupBox, QCheckBox, QSpinBox)
 from PyQt5.QtCore import QThread, pyqtSignal, Qt
 from PyQt5.QtGui import QFont
 
@@ -268,6 +268,24 @@ class EditingTab(QWidget):
         self.remove_silence_check.setChecked(True)
         options_layout.addWidget(self.remove_silence_check)
         
+        # Number of versions
+        versions_layout = QHBoxLayout()
+        versions_layout.addWidget(QLabel("Number of versions to create:"))
+        self.versions_spin = QSpinBox()
+        self.versions_spin.setMinimum(1)
+        self.versions_spin.setMaximum(10)
+        self.versions_spin.setValue(3)
+        self.versions_spin.setToolTip("Create multiple edited versions with different parameters to choose from")
+        versions_layout.addWidget(self.versions_spin)
+        versions_layout.addStretch()
+        options_layout.addLayout(versions_layout)
+        
+        # Subtitle export option
+        self.export_subtitles_check = QCheckBox("Export subtitle files separately")
+        self.export_subtitles_check.setChecked(True)
+        self.export_subtitles_check.setToolTip("Generate separate SRT subtitle files for manual editing")
+        options_layout.addWidget(self.export_subtitles_check)
+        
         options_group.setLayout(options_layout)
         layout.addWidget(options_group)
         
@@ -346,6 +364,7 @@ class EditingTab(QWidget):
         input_path = self.input_path.text().strip()
         output_path = self.output_path.text().strip()
         profile_name = self.profile_combo.currentText()
+        num_versions = self.versions_spin.value()
         
         if not input_path:
             QMessageBox.warning(self, "Error", "Please select an input video")
@@ -359,7 +378,22 @@ class EditingTab(QWidget):
             QMessageBox.warning(self, "Error", "Please select a profile")
             return
         
+        # Confirm number of versions
+        reply = QMessageBox.question(
+            self, 
+            "Confirm Editing",
+            f"Create {num_versions} different edited version(s)?\n\n"
+            f"This will generate multiple videos with varying editing parameters "
+            f"so you can choose the best one.",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.Yes
+        )
+        
+        if reply != QMessageBox.Yes:
+            return
+        
         self.log(f"Starting video editing with profile: {profile_name}")
+        self.log(f"Creating {num_versions} version(s)...")
         self.edit_btn.setEnabled(False)
         self.progress_bar.setValue(0)
         
@@ -371,11 +405,13 @@ class EditingTab(QWidget):
             if not patterns:
                 raise Exception(f"Profile '{profile_name}' not found")
             
-            return self.editor.edit_video(
+            return self.editor.edit_video_multiple(
                 input_path,
                 output_path,
                 patterns,
+                num_versions=num_versions,
                 remove_silence_enabled=self.remove_silence_check.isChecked(),
+                export_subtitles=self.export_subtitles_check.isChecked(),
                 progress_callback=progress_callback
             )
         
@@ -390,12 +426,35 @@ class EditingTab(QWidget):
         self.log(message)
         self.progress_bar.setValue(int(progress * 100))
     
-    def on_editing_finished(self, output_path):
+    def on_editing_finished(self, results):
         """Handle editing completion"""
-        self.log(f"Video editing complete: {output_path}")
-        self.edit_btn.setEnabled(True)
-        self.progress_bar.setValue(100)
-        QMessageBox.information(self, "Success", f"Video edited successfully!\n\nOutput: {output_path}")
+        if isinstance(results, dict):
+            output_files = results.get('videos', [])
+            subtitle_files = results.get('subtitles', [])
+            
+            self.log(f"Video editing complete!")
+            self.log(f"Created {len(output_files)} version(s):")
+            for i, video in enumerate(output_files, 1):
+                self.log(f"  Version {i}: {video}")
+            
+            if subtitle_files:
+                self.log(f"Subtitle files created:")
+                for i, subtitle in enumerate(subtitle_files, 1):
+                    self.log(f"  Version {i}: {subtitle}")
+            
+            self.edit_btn.setEnabled(True)
+            self.progress_bar.setValue(100)
+            
+            msg = f"Video editing complete!\n\n"
+            msg += f"Created {len(output_files)} version(s)\n"
+            msg += f"Output directory: {os.path.dirname(output_files[0])}"
+            QMessageBox.information(self, "Success", msg)
+        else:
+            # Fallback for single output
+            self.log(f"Video editing complete: {results}")
+            self.edit_btn.setEnabled(True)
+            self.progress_bar.setValue(100)
+            QMessageBox.information(self, "Success", f"Video edited successfully!\n\nOutput: {results}")
     
     def on_error(self, error_msg):
         """Handle errors"""
