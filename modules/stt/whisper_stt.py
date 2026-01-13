@@ -1,10 +1,16 @@
 """Whisper-based Speech-to-Text implementation."""
 import os
-import whisper
 from typing import Optional, Dict, List
 from utils.logger import get_logger
 
 logger = get_logger()
+
+try:
+    import whisper
+    WHISPER_AVAILABLE = True
+except ImportError:
+    WHISPER_AVAILABLE = False
+    logger.warning("Whisper not installed. Install with: pip install openai-whisper")
 
 
 class WhisperSTT:
@@ -26,10 +32,18 @@ class WhisperSTT:
         self.model_size = model_size
         self.model = None
         self.name = f"Whisper ({model_size})"
-        logger.info(f"Whisper STT initialized (model={model_size})")
+        
+        if not WHISPER_AVAILABLE:
+            logger.warning("Whisper not available. Install with: pip install openai-whisper")
+        else:
+            logger.info(f"Whisper STT initialized (model={model_size})")
     
     def _load_model(self):
         """Load Whisper model if not already loaded."""
+        if not WHISPER_AVAILABLE:
+            logger.error("Whisper not installed")
+            return False
+        
         if self.model is None:
             try:
                 logger.info(f"Loading Whisper {self.model_size} model...")

@@ -1,11 +1,17 @@
 """Google Cloud Speech-to-Text implementation."""
 import os
 from typing import Optional, List, Dict
-from google.cloud import speech
 from utils.logger import get_logger
 from utils.config_manager import get_config_manager
 
 logger = get_logger()
+
+try:
+    from google.cloud import speech
+    GOOGLE_CLOUD_AVAILABLE = True
+except ImportError:
+    GOOGLE_CLOUD_AVAILABLE = False
+    logger.warning("Google Cloud not installed. Install with: pip install google-cloud-speech")
 
 
 class GoogleCloudSTT:
@@ -22,7 +28,9 @@ class GoogleCloudSTT:
         self.credentials_path = credentials_path or config_manager.get_api_key('google_cloud_credentials_path')
         self.name = "Google Cloud STT"
         
-        if self.credentials_path and os.path.exists(self.credentials_path):
+        if not GOOGLE_CLOUD_AVAILABLE:
+            logger.warning("Google Cloud SDK not available")
+        elif self.credentials_path and os.path.exists(self.credentials_path):
             os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = self.credentials_path
             logger.info("Google Cloud STT initialized")
         else:
@@ -32,6 +40,9 @@ class GoogleCloudSTT:
     
     def _get_client(self):
         """Get or create STT client."""
+        if not GOOGLE_CLOUD_AVAILABLE:
+            return None
+        
         if self.client is None:
             try:
                 self.client = speech.SpeechClient()

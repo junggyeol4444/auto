@@ -1,9 +1,15 @@
 """Real-time Speech-to-Text implementation."""
-import speech_recognition as sr
 from typing import Optional, Callable
 from utils.logger import get_logger
 
 logger = get_logger()
+
+try:
+    import speech_recognition as sr
+    SPEECH_RECOGNITION_AVAILABLE = True
+except ImportError:
+    SPEECH_RECOGNITION_AVAILABLE = False
+    logger.warning("SpeechRecognition not installed. Install with: pip install SpeechRecognition")
 
 
 class RealtimeSTT:
@@ -11,13 +17,22 @@ class RealtimeSTT:
     
     def __init__(self):
         """Initialize real-time STT."""
-        self.recognizer = sr.Recognizer()
-        self.microphone = None
+        if not SPEECH_RECOGNITION_AVAILABLE:
+            logger.warning("SpeechRecognition not available")
+            self.recognizer = None
+            self.microphone = None
+        else:
+            self.recognizer = sr.Recognizer()
+            self.microphone = None
+        
         self.name = "Real-time STT"
         logger.info("Real-time STT initialized")
     
     def _get_microphone(self):
         """Get or create microphone instance."""
+        if not SPEECH_RECOGNITION_AVAILABLE:
+            return None
+        
         if self.microphone is None:
             try:
                 self.microphone = sr.Microphone()

@@ -1,11 +1,17 @@
 """Google Cloud Text-to-Speech engine implementation."""
 import os
 from typing import Optional
-from google.cloud import texttospeech
 from utils.logger import get_logger
 from utils.config_manager import get_config_manager
 
 logger = get_logger()
+
+try:
+    from google.cloud import texttospeech
+    GOOGLE_CLOUD_AVAILABLE = True
+except ImportError:
+    GOOGLE_CLOUD_AVAILABLE = False
+    logger.warning("Google Cloud not installed. Install with: pip install google-cloud-texttospeech")
 
 
 class GoogleCloudTTSEngine:
@@ -30,8 +36,9 @@ class GoogleCloudTTSEngine:
         self.credentials_path = credentials_path or config_manager.get_api_key('google_cloud_credentials_path')
         self.name = "Google Cloud TTS"
         
-        # Set credentials environment variable if provided
-        if self.credentials_path and os.path.exists(self.credentials_path):
+        if not GOOGLE_CLOUD_AVAILABLE:
+            logger.warning("Google Cloud SDK not available")
+        elif self.credentials_path and os.path.exists(self.credentials_path):
             os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = self.credentials_path
             logger.info("Google Cloud TTS engine initialized")
         else:
@@ -41,6 +48,9 @@ class GoogleCloudTTSEngine:
     
     def _get_client(self):
         """Get or create TTS client."""
+        if not GOOGLE_CLOUD_AVAILABLE:
+            return None
+        
         if self.client is None:
             try:
                 self.client = texttospeech.TextToSpeechClient()

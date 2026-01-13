@@ -1,11 +1,17 @@
 """Azure Text-to-Speech engine implementation."""
 import os
-import azure.cognitiveservices.speech as speechsdk
 from typing import Optional
 from utils.logger import get_logger
 from utils.config_manager import get_config_manager
 
 logger = get_logger()
+
+try:
+    import azure.cognitiveservices.speech as speechsdk
+    AZURE_AVAILABLE = True
+except ImportError:
+    AZURE_AVAILABLE = False
+    logger.warning("Azure Cognitive Services not installed. Install with: pip install azure-cognitiveservices-speech")
 
 
 class AzureTTSEngine:
@@ -36,7 +42,9 @@ class AzureTTSEngine:
         self.region = region or config_manager.get('api_keys.azure_speech_region', 'eastus')
         self.name = "Azure TTS"
         
-        if not self.api_key:
+        if not AZURE_AVAILABLE:
+            logger.warning("Azure SDK not available")
+        elif not self.api_key:
             logger.warning("Azure Speech API key not configured")
         else:
             logger.info(f"Azure TTS engine initialized (region={self.region})")
@@ -68,6 +76,10 @@ class AzureTTSEngine:
         Returns:
             True if successful, False otherwise
         """
+        if not AZURE_AVAILABLE:
+            logger.error("Azure SDK not installed")
+            return False
+        
         if not self.api_key:
             logger.error("Azure API key not configured")
             return False
