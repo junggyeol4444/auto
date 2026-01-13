@@ -1,0 +1,27 @@
+# Core video processing
+moviepy>=1.0.3
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# Audio processing
+pydub>=0.25.1
+scipy>=1.10.0
+
+# YouTube downloader
+yt-dlp>=2023.10.0
+
+# Speech recognition (offline)
+vosk>=0.3.45
+
+# GUI
+PyQt5>=5.15.9
+
+# Database
+sqlalchemy>=2.0.0
+
+# Build tools
+pyinstaller>=5.13.0
+
+# Utilities
+requests>=2.31.0
+pillow>=10.0.0
