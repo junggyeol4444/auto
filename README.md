@@ -42,7 +42,48 @@ The platform automatically selects the best translation engine based on language
 - **Google Translate**: General purpose, many languages (uses googletrans library)
 - **GPT-4**: Context-aware translation for technical content (requires API key)
 
-## Installation
+## Quick Start (No Installation Required!)
+
+### 🚀 Easiest Way - Use Launcher Scripts
+
+**Windows Users:**
+```batch
+run_translation_platform.bat
+```
+Simply double-click `run_translation_platform.bat` and it will automatically:
+- Check Python installation
+- Create virtual environment
+- Install all dependencies
+- Launch the application
+
+**Linux/Mac Users:**
+```bash
+./run_translation_platform.sh
+```
+or
+```bash
+bash run_translation_platform.sh
+```
+
+### 📦 Build Standalone Executable
+
+Want a single executable file (EXE/binary)? Use our build scripts:
+
+**Windows:**
+```batch
+build_executable.bat
+```
+Creates: `dist/TranslationPlatform.exe` (standalone, no Python needed)
+
+**Linux/Mac:**
+```bash
+./build_executable.sh
+```
+Creates: `dist/TranslationPlatform` (standalone binary)
+
+See [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md) for detailed build options.
+
+## Manual Installation
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -70,8 +111,27 @@ pip install -r requirements.txt
 
 ### Running the Application
 
+**Option 1: Launcher Script (Recommended)**
+```batch
+# Windows
+run_translation_platform.bat
+
+# Linux/Mac
+./run_translation_platform.sh
+```
+
+**Option 2: Direct Python**
 ```bash
 python main.py
+```
+
+**Option 3: Standalone Executable (after building)**
+```bash
+# Windows
+dist\TranslationPlatform.exe
+
+# Linux/Mac
+dist/TranslationPlatform
 ```
 
 ### Using Different Features
