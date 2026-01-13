@@ -1,7 +1,6 @@
 """
 기술적 분석 - 이동평균선 (MA, EMA)
 """
-import pandas as pd
 from typing import List, Dict, Any
 
 
