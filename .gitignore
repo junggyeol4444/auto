@@ -57,9 +57,11 @@ temp-audio.m4a
 /tmp/
 
 # Build files
-*.spec
 build/
 dist/
+
+# But keep the PyInstaller spec file
+!social_media_suite.spec
 
 # OS specific
 Thumbs.db
