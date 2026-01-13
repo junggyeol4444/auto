@@ -1,0 +1,74 @@
+{
+  "genre": "romance",
+  "name": "로맨스",
+  "worldbuilding": [
+    "계약 결혼: 서로의 필요에 의한 계약 결혼",
+    "재벌 로맨스: 재벌과 평범한 사람의 신분 차이 로맨스",
+    "직장 로맨스: 직장에서 시작되는 사랑 이야기",
+    "첫사랑 재회: 과거의 첫사랑과의 운명적 재회"
+  ],
+  "plot_templates": {
+    "opening": [
+      "{protagonist}와 {love_interest}의 첫 만남은 {situation}였다.",
+      "그날, {protagonist}의 삶에 {love_interest}가 나타났다.",
+      "{protagonist}는 {love_interest}에 대해 {first_impression}을(를) 받았다."
+    ],
+    "development": [
+      "두 사람은 {reason}로 인해 자주 만나게 되었다.",
+      "{protagonist}는 {love_interest}의 {quality}에 조금씩 마음이 끌렸다.",
+      "하지만 {obstacle}이(가) 두 사람 사이를 가로막았다."
+    ],
+    "climax": [
+      "오해가 쌓였다. {protagonist}는 {love_interest}를 오해했고, {love_interest}는 떠나려 했다.",
+      "진실이 밝혀지는 순간, {protagonist}는 자신의 진심을 깨달았다.",
+      "이제는 고백할 때였다. {protagonist}는 용기를 내어 {love_interest}에게 다가갔다."
+    ],
+    "resolution": [
+      "두 사람은 서로의 마음을 확인했다.",
+      "행복한 결말이었다. {protagonist}와 {love_interest}는 함께 미래를 약속했다.",
+      "사랑은 모든 장애물을 뛰어넘었다."
+    ]
+  },
+  "character_archetypes": {
+    "protagonist": {
+      "traits": ["솔직한", "따뜻한", "강인한", "순수한", "열정적인"],
+      "backgrounds": ["평범한 회사원", "디자이너", "작가", "학생", "프리랜서"]
+    },
+    "love_interest": {
+      "traits": ["차갑지만 따뜻한", "완벽한", "신비로운", "다정한", "츤데레"],
+      "roles": ["재벌 후계자", "CEO", "의사", "교수", "유명 작가"]
+    },
+    "rival": {
+      "traits": ["집착하는", "교활한", "우아한"],
+      "roles": ["전 연인", "사업 파트너", "약혼자", "라이벌"]
+    },
+    "supporter": {
+      "traits": ["다정한", "재치있는", "충직한"],
+      "roles": ["친구", "비서", "가족", "동료"]
+    }
+  },
+  "scene_templates": {
+    "romance": [
+      "{character1}의 시선이 {character2}의 입술에 머물렀다.",
+      "두 사람 사이의 거리가 점점 좁혀졌다.",
+      "{character}의 심장이 빠르게 뛰었다. {emotion}이(가) 밀려왔다."
+    ],
+    "dialogue": [
+      "\"{dialogue1}\" {character1}이(가) 속삭였다.",
+      "\"{dialogue2}\" {character2}의 목소리가 떨렸다.",
+      "말없이 눈빛만으로 대화했다. 더 이상의 말은 필요 없었다."
+    ],
+    "conflict": [
+      "{character1}과 {character2} 사이에 오해가 생겼다.",
+      "{obstacle}이(가) 두 사람을 갈라놓으려 했다.",
+      "{character}는 {emotion}으로 마음이 찢어지는 것 같았다."
+    ]
+  },
+  "conflicts": [
+    "신분 차이: 너무나 다른 두 사람의 배경",
+    "오해와 갈등: 소통의 부재로 인한 오해",
+    "삼각관계: 또 다른 사람의 등장",
+    "가족 반대: 주변의 반대와 장애물",
+    "과거의 상처: 극복해야 할 아픈 과거"
+  ]
+}
