@@ -42,6 +42,8 @@
 pip install -r requirements.txt
 ```
 
+**⚠️ 보안 공지**: 모든 의존성이 최신 보안 패치를 포함합니다 (2026-01-13). 자세한 내용은 `SECURITY.md` 참고.
+
 ### 3. FFmpeg 설치
 **Windows:**
 1. https://ffmpeg.org/download.html 에서 다운로드

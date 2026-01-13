@@ -2,6 +2,21 @@
 
 ## 일반적인 문제
 
+### 0. 보안 업데이트 ⚠️
+
+#### "보안 취약점 경고"
+**최신 정보**: 모든 보안 취약점이 패치되었습니다 (2026-01-13)
+- nltk 3.8.1 → 3.9 (unsafe deserialization 수정)
+- pillow 10.1.0 → 10.3.0 (buffer overflow 수정)
+- yt-dlp 2023.11.16 → 2024.07.01 (RCE 및 command injection 수정)
+
+**해결방법:**
+```bash
+pip install -r requirements.txt --upgrade
+```
+
+자세한 내용은 `SECURITY.md` 참고
+
 ### 1. 설치 관련
 
 #### "Python 3.8 이상이 필요합니다"

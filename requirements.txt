@@ -2,7 +2,7 @@
 
 # GUI
 customtkinter==5.2.1
-pillow==10.1.0
+pillow==10.3.0
 
 # Streaming Platform APIs
 twitchio==2.9.1
@@ -23,18 +23,17 @@ soundfile==0.12.1
 openai-whisper==20231117
 opencv-python==4.8.1.78
 moviepy==1.0.3
-Pillow==10.1.0
 numpy==1.24.3
 
 # Music System
-yt-dlp==2023.11.16
+yt-dlp==2024.07.01
 pygame==2.5.2
 
 # Natural Language Processing
 konlpy==0.6.0
 googletrans==3.1.0a0
 rake-nltk==1.0.6
-nltk==3.8.1
+nltk==3.9
 
 # Database
 sqlalchemy==2.0.23
