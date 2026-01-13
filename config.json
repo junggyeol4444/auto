@@ -1,0 +1,19 @@
+{
+  "app_name": "Creative Writing Assistant Suite",
+  "version": "1.0.0",
+  "language": "ko",
+  "database": "creative_writing.db",
+  "ai_api": {
+    "enabled": false,
+    "provider": "none",
+    "api_key": ""
+  },
+  "export": {
+    "formats": ["txt", "docx"],
+    "default_format": "txt"
+  },
+  "ui": {
+    "theme": "dark",
+    "font_size": 12
+  }
+}
