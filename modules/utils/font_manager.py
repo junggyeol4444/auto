@@ -115,13 +115,13 @@ class FontManager:
             for font_path in self.system_fonts:
                 try:
                     return ImageFont.truetype(font_path, size)
-                except:
+                except Exception:
                     pass
         
         # Last resort: default font
         try:
             return ImageFont.load_default()
-        except:
+        except Exception:
             return ImageFont.truetype("arial.ttf", size)
     
     def get_bold_font(self, size: int = 40) -> ImageFont.FreeTypeFont:

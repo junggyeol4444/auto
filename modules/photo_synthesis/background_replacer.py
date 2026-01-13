@@ -3,12 +3,7 @@ Background replacement functionality
 """
 from PIL import Image, ImageDraw
 from typing import Tuple, Optional
-import sys
-import os
-
-# Add parent directory to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.image_utils import create_gradient
+from ..utils.image_utils import create_gradient
 
 
 class BackgroundReplacer:

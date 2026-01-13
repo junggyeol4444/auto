@@ -74,12 +74,16 @@ class TemplateManager:
             secondary = genre_colors[1] if len(genre_colors) > 1 else genre_colors[0]
         
         # Create gradient background
+        r1, g1, b1 = self._hex_to_rgb(primary)
+        r2, g2, b2 = self._hex_to_rgb(secondary)
+        
+        # Use numpy for efficient gradient generation
+        import numpy as np
+        y_range = np.linspace(0, 1, self.size[1])
+        
         for y in range(self.size[1]):
-            # Linear interpolation between colors
-            ratio = y / self.size[1]
-            r1, g1, b1 = self._hex_to_rgb(primary)
-            r2, g2, b2 = self._hex_to_rgb(secondary)
-            
+            # Linear interpolation
+            ratio = y_range[y]
             r = int(r1 + (r2 - r1) * ratio)
             g = int(g1 + (g2 - g1) * ratio)
             b = int(b1 + (b2 - b1) * ratio)
