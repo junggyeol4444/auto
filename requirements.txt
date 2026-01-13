@@ -1,0 +1,67 @@
+# Core GUI
+customtkinter==5.2.0
+tkinter-tooltip==3.0.0
+pillow==10.1.0
+
+# TTS Engines
+gTTS==2.4.0
+pyttsx3==2.90
+azure-cognitiveservices-speech==1.31.0
+google-cloud-texttospeech==2.14.1
+TTS==0.22.0  # Coqui TTS
+
+# STT Engines
+openai-whisper==20231117
+google-cloud-speech==2.21.0
+vosk==0.3.45
+SpeechRecognition==3.10.0
+
+# Audio Processing
+pydub==0.25.1
+librosa==0.10.1
+soundfile==0.12.1
+pyloudnorm==0.1.1
+audioread==3.0.1
+resampy==0.4.2
+
+# Noise Reduction & Source Separation
+df-py==0.5.1  # DeepFilterNet
+spleeter==2.4.0
+demucs==4.0.1
+
+# Translation
+googletrans==4.0.0rc1
+deep-translator==1.11.4
+
+# Video Processing
+moviepy==1.0.3
+opencv-python==4.8.1.78
+
+# Utilities
+numpy==1.24.3
+scipy==1.11.4
+torch==2.1.0
+torchaudio==2.1.0
+torchvision==0.16.0
+
+# File Handling
+mutagen==1.47.0
+ffmpeg-python==0.2.0
+
+# Configuration & Logging
+python-dotenv==1.0.0
+loguru==0.7.2
+
+# API Clients
+requests==2.31.0
+aiohttp==3.9.1
+
+# Voice Cloning (RVC dependencies)
+faiss-cpu==1.7.4
+praat-parselmouth==0.4.3
+pyworld==0.3.4
+torchcrepe==0.0.20
+
+# Additional dependencies
+tqdm==4.66.1
+colorama==0.4.6
