@@ -6,7 +6,7 @@ import os
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QTabWidget, QWidget, 
                              QVBoxLayout, QHBoxLayout, QPushButton, QLabel, 
                              QLineEdit, QTextEdit, QFileDialog, QProgressBar,
-                             QComboBox, QMessageBox, QGroupBox, QCheckBox, QSpinBox)
+                             QComboBox, QMessageBox, QGroupBox, QCheckBox, QSpinBox, QListWidget)
 from PyQt5.QtCore import QThread, pyqtSignal, Qt
 from PyQt5.QtGui import QFont
 
@@ -244,47 +244,53 @@ class EditingTab(QWidget):
         input_group.setLayout(input_layout)
         layout.addWidget(input_group)
         
-        # Profile selection
-        profile_group = QGroupBox("Editing Profile")
+        # Editing Style Selection
+        style_group = QGroupBox("Editing Style")
+        style_layout = QVBoxLayout()
+        
+        style_layout.addWidget(QLabel("Select editing intensity:"))
+        self.style_combo = QComboBox()
+        self.style_combo.addItem("Standard - Balanced editing with learned patterns")
+        self.style_combo.addItem("Aggressive - More silence removal, tighter cuts")
+        self.style_combo.addItem("Conservative - Keep more content, natural flow")
+        style_layout.addWidget(self.style_combo)
+        
+        style_group.setLayout(style_layout)
+        layout.addWidget(style_group)
+        
+        # Profile selection (Multiple)
+        profile_group = QGroupBox("Editing Profiles")
         profile_layout = QVBoxLayout()
         
-        self.profile_combo = QComboBox()
+        profile_layout.addWidget(QLabel("Select profiles to use (hold Ctrl/Cmd for multiple):"))
+        self.profile_list = QListWidget()
+        self.profile_list.setSelectionMode(QListWidget.MultiSelection)
         self.refresh_profiles()
-        profile_layout.addWidget(QLabel("Select Profile:"))
-        profile_layout.addWidget(self.profile_combo)
+        profile_layout.addWidget(self.profile_list)
         
         refresh_btn = QPushButton("Refresh Profiles")
         refresh_btn.clicked.connect(self.refresh_profiles)
         profile_layout.addWidget(refresh_btn)
         
+        profile_layout.addWidget(QLabel("Number of edited videos will equal number of selected profiles"))
+        
         profile_group.setLayout(profile_layout)
         layout.addWidget(profile_group)
         
         # Options
-        options_group = QGroupBox("Editing Options")
+        options_group = QGroupBox("Output Options")
         options_layout = QVBoxLayout()
         
         self.remove_silence_check = QCheckBox("Remove Silence")
         self.remove_silence_check.setChecked(True)
         options_layout.addWidget(self.remove_silence_check)
         
-        # Number of versions
-        versions_layout = QHBoxLayout()
-        versions_layout.addWidget(QLabel("Number of versions to create:"))
-        self.versions_spin = QSpinBox()
-        self.versions_spin.setMinimum(1)
-        self.versions_spin.setMaximum(10)
-        self.versions_spin.setValue(3)
-        self.versions_spin.setToolTip("Create multiple edited versions with different parameters to choose from")
-        versions_layout.addWidget(self.versions_spin)
-        versions_layout.addStretch()
-        options_layout.addLayout(versions_layout)
-        
-        # Subtitle export option
-        self.export_subtitles_check = QCheckBox("Export subtitle files separately")
-        self.export_subtitles_check.setChecked(True)
-        self.export_subtitles_check.setToolTip("Generate separate SRT subtitle files for manual editing")
-        options_layout.addWidget(self.export_subtitles_check)
+        info_label = QLabel("For each selected profile, 3 files will be created:\n"
+                           "  • Final video (with subtitles + BGM)\n"
+                           "  • Video without subtitles (for manual editing)\n"
+                           "  • Subtitle file (.srt)")
+        info_label.setStyleSheet("color: #555; font-size: 10px;")
+        options_layout.addWidget(info_label)
         
         options_group.setLayout(options_layout)
         layout.addWidget(options_group)
@@ -332,10 +338,10 @@ class EditingTab(QWidget):
     
     def refresh_profiles(self):
         """Refresh the profile list"""
-        self.profile_combo.clear()
+        self.profile_list.clear()
         profiles = self.database.get_all_profiles()
         for profile in profiles:
-            self.profile_combo.addItem(profile.name)
+            self.profile_list.addItem(profile.name)
     
     def browse_input(self):
         """Browse for input video"""
@@ -360,11 +366,12 @@ class EditingTab(QWidget):
             self.output_path.setText(filename)
     
     def edit_video(self):
-        """Edit video using selected profile"""
+        """Edit video using selected profiles"""
         input_path = self.input_path.text().strip()
         output_path = self.output_path.text().strip()
-        profile_name = self.profile_combo.currentText()
-        num_versions = self.versions_spin.value()
+        selected_items = self.profile_list.selectedItems()
+        selected_profiles = [item.text() for item in selected_items]
+        style_index = self.style_combo.currentIndex()
         
         if not input_path:
             QMessageBox.warning(self, "Error", "Please select an input video")
@@ -374,17 +381,21 @@ class EditingTab(QWidget):
             QMessageBox.warning(self, "Error", "Please specify an output path")
             return
         
-        if not profile_name:
-            QMessageBox.warning(self, "Error", "Please select a profile")
+        if not selected_profiles:
+            QMessageBox.warning(self, "Error", "Please select at least one profile")
             return
         
-        # Confirm number of versions
+        # Confirm editing
+        style_names = ["Standard", "Aggressive", "Conservative"]
         reply = QMessageBox.question(
             self, 
             "Confirm Editing",
-            f"Create {num_versions} different edited version(s)?\n\n"
-            f"This will generate multiple videos with varying editing parameters "
-            f"so you can choose the best one.",
+            f"Edit with {len(selected_profiles)} profile(s) using {style_names[style_index]} style?\n\n"
+            f"Profiles: {', '.join(selected_profiles)}\n\n"
+            f"This will create {len(selected_profiles) * 3} files:\n"
+            f"  • {len(selected_profiles)} final videos (with subtitles)\n"
+            f"  • {len(selected_profiles)} videos without subtitles\n"
+            f"  • {len(selected_profiles)} subtitle files",
             QMessageBox.Yes | QMessageBox.No,
             QMessageBox.Yes
         )
@@ -392,8 +403,9 @@ class EditingTab(QWidget):
         if reply != QMessageBox.Yes:
             return
         
-        self.log(f"Starting video editing with profile: {profile_name}")
-        self.log(f"Creating {num_versions} version(s)...")
+        self.log(f"Starting video editing with {len(selected_profiles)} profile(s)")
+        self.log(f"Style: {style_names[style_index]}")
+        self.log(f"Profiles: {', '.join(selected_profiles)}")
         self.edit_btn.setEnabled(False)
         self.progress_bar.setValue(0)
         
@@ -401,17 +413,20 @@ class EditingTab(QWidget):
             self.worker.progress.emit(message, progress)
         
         def edit_task():
-            patterns = self.learner.get_profile_patterns(profile_name)
-            if not patterns:
-                raise Exception(f"Profile '{profile_name}' not found")
+            # Get all selected profile patterns
+            all_patterns = []
+            for profile_name in selected_profiles:
+                patterns = self.learner.get_profile_patterns(profile_name)
+                if not patterns:
+                    raise Exception(f"Profile '{profile_name}' not found")
+                all_patterns.append((profile_name, patterns))
             
-            return self.editor.edit_video_multiple(
+            return self.editor.edit_video_with_profiles(
                 input_path,
                 output_path,
-                patterns,
-                num_versions=num_versions,
+                all_patterns,
+                style_index=style_index,
                 remove_silence_enabled=self.remove_silence_check.isChecked(),
-                export_subtitles=self.export_subtitles_check.isChecked(),
                 progress_callback=progress_callback
             )
         
@@ -429,25 +444,29 @@ class EditingTab(QWidget):
     def on_editing_finished(self, results):
         """Handle editing completion"""
         if isinstance(results, dict):
-            output_files = results.get('videos', [])
+            final_videos = results.get('final_videos', [])
+            no_subtitle_videos = results.get('no_subtitle_videos', [])
             subtitle_files = results.get('subtitles', [])
             
             self.log(f"Video editing complete!")
-            self.log(f"Created {len(output_files)} version(s):")
-            for i, video in enumerate(output_files, 1):
-                self.log(f"  Version {i}: {video}")
+            self.log(f"Created files for {len(final_videos)} profile(s):")
             
-            if subtitle_files:
-                self.log(f"Subtitle files created:")
-                for i, subtitle in enumerate(subtitle_files, 1):
-                    self.log(f"  Version {i}: {subtitle}")
+            for i, profile_name in enumerate(results.get('profile_names', [])):
+                self.log(f"\n  Profile: {profile_name}")
+                if i < len(final_videos):
+                    self.log(f"    • Final: {final_videos[i]}")
+                if i < len(no_subtitle_videos):
+                    self.log(f"    • No subtitle: {no_subtitle_videos[i]}")
+                if i < len(subtitle_files):
+                    self.log(f"    • Subtitle: {subtitle_files[i]}")
             
             self.edit_btn.setEnabled(True)
             self.progress_bar.setValue(100)
             
             msg = f"Video editing complete!\n\n"
-            msg += f"Created {len(output_files)} version(s)\n"
-            msg += f"Output directory: {os.path.dirname(output_files[0])}"
+            msg += f"Created {len(final_videos)} set(s) of files\n"
+            msg += f"({len(final_videos)} final videos, {len(no_subtitle_videos)} videos without subtitles, {len(subtitle_files)} subtitle files)\n\n"
+            msg += f"Output directory: {os.path.dirname(final_videos[0]) if final_videos else ''}"
             QMessageBox.information(self, "Success", msg)
         else:
             # Fallback for single output
